@@ -10,7 +10,7 @@ public class FlappyBird extends JPanel implements ActionListener, KeyListener {
 
 	int boardWidth = 360;
 	int boardHeight = 640;
-
+	
 	// IMAGES
 	Image bgImg;
 	Image birdImg;
@@ -71,7 +71,7 @@ public class FlappyBird extends JPanel implements ActionListener, KeyListener {
 	boolean gameOver = false;
 	double score = 0;
 	boolean iconPressed = false;
-	double highScore;
+	double highScore= ScoreStorage.loadHighScore();
 	boolean inMenu = true; // Added to track the menu state
 
 	public FlappyBird() {
@@ -81,11 +81,11 @@ public class FlappyBird extends JPanel implements ActionListener, KeyListener {
 		addKeyListener(this);
 
 		// LOAD IMG
-		bgImg = new ImageIcon(getClass().getResource("../flappybirdbg.png")).getImage();
-		birdImg = new ImageIcon(getClass().getResource("../flappybird.png")).getImage();
-		topPipeimg = new ImageIcon(getClass().getResource("../toppipe.png")).getImage();
-		bottomPipeimg = new ImageIcon(getClass().getResource("../bottompipe.png")).getImage();
-		restart = new ImageIcon(getClass().getResource("../restart.png")).getImage();
+		bgImg = new ImageIcon(getClass().getResource("../img/flappybirdbg.png")).getImage();
+		birdImg = new ImageIcon(getClass().getResource("../img/flappybird.png")).getImage();
+		topPipeimg = new ImageIcon(getClass().getResource("../img/toppipe.png")).getImage();
+		bottomPipeimg = new ImageIcon(getClass().getResource("../img/bottompipe.png")).getImage();
+		restart = new ImageIcon(getClass().getResource("../img/restart.png")).getImage();
 		JLabel reset = new JLabel(new ImageIcon(restart));
 		reset.addMouseListener(new MouseListener() {
 
@@ -208,9 +208,7 @@ public class FlappyBird extends JPanel implements ActionListener, KeyListener {
 				pipe.passed = true;
 				score += 0.5; // 0.5 per pipes and there are 2 pipes(top & bottom)
 			}
-			if (highScore < score) {
-				highScore = score;
-			}
+			
 
 			if (collision(bird, pipe)) {
 				gameOver = true;
@@ -250,6 +248,10 @@ public class FlappyBird extends JPanel implements ActionListener, KeyListener {
 			if (e.getKeyCode() == KeyEvent.VK_SPACE) {
 				velocityY = -9;
 				if (gameOver) {
+					if (highScore < score) {
+						highScore = score;
+						ScoreStorage.saveHighScore(highScore);
+					}
 					// restart game by resetting conditions
 					bird.y = birdY;
 					velocityY = 0;
@@ -258,6 +260,7 @@ public class FlappyBird extends JPanel implements ActionListener, KeyListener {
 					gameOver = false;
 					gameLoop.start();
 					placePipesTimer.start();
+					
 				}
 			}
 		}
