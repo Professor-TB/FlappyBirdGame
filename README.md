@@ -21,3 +21,7 @@ The `JAVA PROJECTS` view allows you to manage your dependencies. More details ca
 # FlappyBirdGame
 A Game of FlappyBird
 >>>>>>> c8dc7887762330d7f7a5ab17d6430fcc7197e8f2
+
+// ReadMe starts
+
+currently it can be run using jre. directly from and editors like eclipse. the score is stored in a json file.
