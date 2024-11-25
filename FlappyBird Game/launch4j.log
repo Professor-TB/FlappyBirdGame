@@ -1,0 +1,18 @@
+
+
+Version:	3.50
+CmdLine:	D:\FlappyBird Game\FlappyBird.exe --l4j-debug
+JNI:		No
+WOW64:		Yes
+Working dir:	D:\FlappyBird Game\.
+Requires JDK:	No
+Requires 64-Bit: No
+Java min ver:	1.002.000
+Java max ver:	
+JRE paths:	jre
+Check launcher:	D:\FlappyBird Game\jre\bin\javaw.exe (OK)
+Version string: 1.008.000_432 / 64-Bit (OK)
+Launcher:	D:\FlappyBird Game\jre\bin\javaw.exe
+Launcher args:	-jar "D:\FlappyBird Game\FlappyBird.exe"
+Args length:	40/32768 chars
+Exit code:	0
