@@ -1,11 +1,19 @@
 package game;
-import com.google.gson.Gson;
+import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
+import com.google.gson.Gson;
+
 public class ScoreStorage {
-    private static final String SCORE_FILE = "src/resource/score.json";
+//    private static final String SCORE_FILE = "src/resource/score.json";
+    
+	static String jarPath = new File(FlappyBird.class.getProtectionDomain().getCodeSource().getLocation().getPath()).getParent();
+	static String highScoreFilePath = jarPath + File.separator + "scores.json";
+
+	
+	private static final String SCORE_FILE = highScoreFilePath;
 
     // Class to hold the score data
     public static class ScoreData {

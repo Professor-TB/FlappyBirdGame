@@ -81,11 +81,11 @@ public class FlappyBird extends JPanel implements ActionListener, KeyListener {
 		addKeyListener(this);
 
 		// LOAD IMG
-		bgImg = new ImageIcon(getClass().getResource("../img/flappybirdbg.png")).getImage();
-		birdImg = new ImageIcon(getClass().getResource("../img/flappybird.png")).getImage();
-		topPipeimg = new ImageIcon(getClass().getResource("../img/toppipe.png")).getImage();
-		bottomPipeimg = new ImageIcon(getClass().getResource("../img/bottompipe.png")).getImage();
-		restart = new ImageIcon(getClass().getResource("../img/restart.png")).getImage();
+		bgImg = new ImageIcon(getClass().getClassLoader().getResource("img/flappybirdbg.png")).getImage();
+		birdImg = new ImageIcon(getClass().getClassLoader().getResource("img/flappybird.png")).getImage();
+		topPipeimg = new ImageIcon(getClass().getClassLoader().getResource("img/toppipe.png")).getImage();
+		bottomPipeimg = new ImageIcon(getClass().getClassLoader().getResource("img/bottompipe.png")).getImage();
+		restart = new ImageIcon(getClass().getClassLoader().getResource("img/restart.png")).getImage();
 		JLabel reset = new JLabel(new ImageIcon(restart));
 		reset.addMouseListener(new MouseListener() {
 
